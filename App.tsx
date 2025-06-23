@@ -5,7 +5,9 @@
  * @format
  */
 
-import { StatusBar, StyleSheet, useColorScheme, View, Text } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import React from 'react';
+import AppNavigator from './src/navigation/AppNavigator';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -13,7 +15,9 @@ function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Text>Hello, World! This is a React Native app.</Text>
+      <SafeAreaView style={{ flex: 1 }}>
+        <AppNavigator />
+      </SafeAreaView>
     </View>
   );
 }
@@ -21,8 +25,6 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 
