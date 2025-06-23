@@ -9,7 +9,7 @@ import { RootStackParamList } from './types'
 import HomeScreen from '../screens/HomeScreen'
 
 // Stacks
-import UserStacks from './Stacks/UserStacks'
+import AuthStacks from './Stacks/AuthStacks'
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -21,9 +21,9 @@ const AppNavigator = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={"User"}
+        initialRouteName={"Auth"}
       >
-        <Stack.Screen name="User" component={UserStacks} />
+        <Stack.Screen name="Auth" component={AuthStacks} />
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>

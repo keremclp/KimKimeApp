@@ -3,10 +3,11 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '../../screens/LoginScreen';
 import RegisterScreen from '../../screens/RegisterScreen';
+import { AuthStackParamList } from '../types';
 
-const Stack = createNativeStackNavigator(); 
+const Stack = createNativeStackNavigator<AuthStackParamList>(); 
 
-const UserStacks = () => {
+const AuthStacks = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
@@ -15,6 +16,6 @@ const UserStacks = () => {
     );
 };
 
-export default UserStacks;
+export default AuthStacks;
 
 
