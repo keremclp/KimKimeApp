@@ -3,11 +3,9 @@ import { Text, TouchableOpacity, View, TextInput, Alert } from 'react-native'
 import { styles } from './styles'
 // navigation
 import { useNavigation } from '@react-navigation/native'
-import { AuthStackParamList } from '../../navigation/types'
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const LoginScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,12 +14,13 @@ const LoginScreen = () => {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
-    // Add your login logic here
-    console.log('Login attempted with:', email, password);
+
+    navigation.navigate('Main');
+
   };
 
   const handleRegisterPress = () => {
-    navigation.navigate('Register');
+    navigation.navigate('Auth', { screen: 'Register' });
   };
 
   return (

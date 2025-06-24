@@ -1,5 +1,7 @@
 export const Colors = {
   background: '#F5F5F5',
+  activeTab: '#2EC4B6',
+  inactiveTab: '#FFFFFF',
   surface: '#FFFFFF',
   primary: '#2EC4B6',
   primaryVariant: '#176B87',

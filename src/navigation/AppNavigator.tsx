@@ -1,16 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { RootStackParamList } from './types'
 
-// Screens
-import HomeScreen from '../screens/HomeScreen'
-
 // Stacks
 import AuthStacks from './Stacks/AuthStacks'
-
+import BottomTabStacks from './Stacks/BottomTabStacks'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -24,7 +21,7 @@ const AppNavigator = () => {
         initialRouteName={"Auth"}
       >
         <Stack.Screen name="Auth" component={AuthStacks} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Main" component={BottomTabStacks} />
       </Stack.Navigator>
     </NavigationContainer>
   )
