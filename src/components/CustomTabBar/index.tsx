@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     borderRadius: 35,
-    borderWidth: 1,
+    borderWidth: 0.0000001,
     flexDirection: 'row',
     backgroundColor: '#FFFFFF',
     marginHorizontal: 30,
@@ -160,7 +160,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50, // Perfect circle
-    borderWidth: 1,
   },
   icon: {
     fontSize: 24,
