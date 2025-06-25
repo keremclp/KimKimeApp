@@ -4,29 +4,41 @@ import { Colors } from '../../constants/Colors'
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.background,
+        backgroundColor: '#FFFFFF',
+    },
+    scrollContainer: {
+        flexGrow: 1,
         justifyContent: 'center',
         paddingHorizontal: 20,
+        paddingVertical: 20,
+    },
+    content: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        maxWidth: 400,
+        alignSelf: 'center',
+    },
+    logoContainer: {
+        alignItems: 'center',
+        marginBottom: 40,
+    },
+    logo: {
+        width: 100,
+        height: 100,
     },
     formContainer: {
-        backgroundColor: Colors.cardBackground,
-        padding: 30,
-        borderRadius: 12,
-        shadowColor: Colors.shadow,
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 5,
+        justifyContent: 'center',
+        width: '100%',
+        paddingHorizontal: 10,
     },
     title: {
-        fontSize: 28,
+        fontSize: 24,
         fontWeight: 'bold',
         color: Colors.textPrimary,
         textAlign: 'center',
-        marginBottom: 8,
+        marginTop: 20,
+        marginBottom: 5,
     },
     subtitle: {
         fontSize: 16,
@@ -46,6 +58,7 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         backgroundColor: Colors.inputBackground,
         color: Colors.textPrimary,
+        width: '100%',
     },
     loginButton: {
         backgroundColor: Colors.primary,
