@@ -2,19 +2,23 @@ import React from 'react'
 import { View, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
 import { Colors } from '../../constants/Colors'
+import { Iconify } from 'react-native-iconify'
 
 const getTabIcon = (routeName: string, focused: boolean) => {
+  const iconColor = focused ? '#007AFF' : '#8E8E93'
+  const iconSize = 24
+  
   switch (routeName) {
     case 'Home':
-      return '🏠'
+      return <Iconify icon="mdi:home" size={iconSize} color={iconColor} />
     case 'Profile':
-      return '👤'
+      return <Iconify icon="mdi:account" size={iconSize} color={iconColor} />
     case 'Settings':
-      return '⚙️'
+      return <Iconify icon="mdi:cog" size={iconSize} color={iconColor} />
     case 'Notifications':
-      return '🔔'
+      return <Iconify icon="mdi:bell" size={iconSize} color={iconColor} />
     default:
-      return '📱'
+      return <Iconify icon="mdi:cellphone" size={iconSize} color={iconColor} />
   }
 }
 
@@ -32,8 +36,6 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigat
       }).start()
     })
   }, [state.index])
-
-
 
   return (
     <View style={styles.container}>
@@ -95,29 +97,25 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigat
                   },
                 ]}
               >
-                <Animated.Text
+                <Animated.View
                   style={[
-                    styles.icon,
+                    styles.iconContainer,
                     {
                       opacity: iconOpacity,
                     },
                   ]}
                 >
                   {getTabIcon(route.name, isFocused)}
-                </Animated.Text>
+                </Animated.View>
                 
                 {isFocused && (
                   <Animated.View style={styles.activeDot} />
                 )}
-                
-                
               </Animated.View>
             </TouchableOpacity>
           )
         })}
       </View>
-
-      
     </View>
   )
 }
@@ -161,8 +159,9 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 50, // Perfect circle
   },
-  icon: {
-    fontSize: 24,
+  iconContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 4,
   },
   activeDot: {
@@ -173,7 +172,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 5,
   },
-  
 })
 
 export default CustomTabBar
