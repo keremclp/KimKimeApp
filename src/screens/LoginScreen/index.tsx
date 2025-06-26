@@ -11,6 +11,7 @@ import {
   Platform,
 } from 'react-native';
 import { styles } from './styles';
+import { Iconify } from 'react-native-iconify';
 import { useNavigation } from '@react-navigation/native';
 import type { RootStackParamList } from '../../navigation/types';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -21,6 +22,11 @@ const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const handleRememberMeToggle = () => {
+    setRememberMe(!rememberMe);
+  };
 
   const handleLogin = () => {
     if (!email || !password) {
@@ -85,8 +91,21 @@ const LoginScreen = () => {
             </View>
             {/* Navigate to ForgotPassword screen and remember me */}
             <View style={styles.forgotPasswordContainer}>
-              <View style={styles.rememberMeContainer}>
-                <TouchableOpacity>
+              <View>
+                <TouchableOpacity style={styles.rememberMeContainer} onPress={handleRememberMeToggle}>
+                  {rememberMe ? (
+                    <Iconify
+                      icon="mdi:checkbox-marked"
+                      size={24}
+                      color="#007AFF"
+                    />
+                  ) : (
+                    <Iconify
+                      icon="mdi:checkbox-blank-outline"
+                      size={24}
+                      color="#999"
+                    />
+                  )}
                   <Text style={styles.rememberMeText}>Remember Me</Text>
                 </TouchableOpacity>
               </View>

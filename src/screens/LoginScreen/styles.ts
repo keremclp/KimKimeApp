@@ -91,6 +91,16 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
+    rememberMeCheckbox: {
+        width: 20,
+        height: 20,
+        borderWidth: 1,
+        borderColor: Colors.inputBorder,
+        borderRadius: 4,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 8,
+    },
     rememberMeText: {
         fontSize: 14,
         color: Colors.textSecondary,
