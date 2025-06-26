@@ -81,6 +81,26 @@ export const styles = StyleSheet.create({
         fontWeight: '600',
         textAlign: 'center',
     },
+    forgotPasswordContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    rememberMeContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    rememberMeText: {
+        fontSize: 14,
+        color: Colors.textSecondary,
+    },
+    forgotPasswordText: {
+        fontSize: 14,
+        color: Colors.primary,
+        fontWeight: '600',
+    },
+    
     registerContainer: {
         flexDirection: 'row',
         justifyContent: 'center',

@@ -83,11 +83,22 @@ const LoginScreen = () => {
                 autoCapitalize="none"
               />
             </View>
+            {/* Navigate to ForgotPassword screen and remember me */}
+            <View style={styles.forgotPasswordContainer}>
+              <View style={styles.rememberMeContainer}>
+                <TouchableOpacity>
+                  <Text style={styles.rememberMeText}>Remember Me</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity onPress={() => navigation.navigate('Auth', { screen: 'ForgotPassword' })}>
+                <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+              </TouchableOpacity>
+            </View>
 
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>Sign In</Text>
             </TouchableOpacity>
-
+            
             <View style={styles.registerContainer}>
               <Text style={styles.registerText}>Don't have an account? </Text>
               <TouchableOpacity onPress={handleRegisterPress}>
