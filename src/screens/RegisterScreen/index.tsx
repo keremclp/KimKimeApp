@@ -26,7 +26,7 @@ const RegisterScreen = () => {
           <TextInput placeholder="Ad & Soyad" />
         </View>
         <View style={styles.input}>
-          <TextInput placeholder="Ad & Soyad" />
+          <TextInput placeholder="Telefon Numaranız" />
         </View>
 
         <View style={styles.input}>

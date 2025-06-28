@@ -10,7 +10,9 @@ export const styles = StyleSheet.create({
         flexGrow: 1,
         justifyContent: 'center',
         paddingHorizontal: 20,
-        paddingVertical: 20,
+        paddingVertical: 10,
+        borderWidth: 1,
+        borderColor: 'red',
     },
     content: {
         alignItems: 'center',
@@ -48,6 +50,7 @@ export const styles = StyleSheet.create({
     },
     inputContainer: {
         marginBottom: 20,
+        gap: 16,
     },
     input: {
         borderWidth: 1,

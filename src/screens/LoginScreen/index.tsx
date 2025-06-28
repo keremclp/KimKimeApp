@@ -20,7 +20,7 @@ type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
-  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
@@ -29,14 +29,12 @@ const LoginScreen = () => {
   };
 
   const handleLogin = () => {
-    if (!email || !password) {
+    if (!phoneNumber || !password) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
 
-
     navigation.navigate('Main', { screen: 'Home' });
-
   };
 
   const handleRegisterPress = () => {
@@ -44,11 +42,6 @@ const LoginScreen = () => {
   };
 
   return (
-    <KeyboardAvoidingView 
-      style={styles.container} 
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
-    >
       <ScrollView 
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
@@ -61,27 +54,21 @@ const LoginScreen = () => {
               style={styles.logo}
               resizeMode="contain"
             />
-            <Text style={styles.title}>Welcome Back</Text>
-            <Text style={styles.subtitle}>Sign in to your account</Text>
+            <Text style={styles.title}>Tekrar Hoşgeldiniz</Text>
+            <Text style={styles.subtitle}>Hesabınıza giriş yapın</Text>
           </View>
           <View style={styles.formContainer}>
             <View style={styles.inputContainer}>
               <TextInput
                 style={styles.input}
-                placeholder="Email"
+                placeholder="Telefon Numaranız"
                 placeholderTextColor="#999"
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
+                value={phoneNumber}
+                onChangeText={setPhoneNumber}
               />
-            </View>
-
-            <View style={styles.inputContainer}>
               <TextInput
                 style={styles.input}
-                placeholder="Password"
+                placeholder="Şifreniz"
                 placeholderTextColor="#999"
                 value={password}
                 onChangeText={setPassword}
@@ -127,7 +114,7 @@ const LoginScreen = () => {
           </View>
         </View>
       </ScrollView>
-    </KeyboardAvoidingView>
+    
   );
 };
 
