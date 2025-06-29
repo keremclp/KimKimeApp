@@ -78,6 +78,10 @@ export const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 3,
     },
+    loadingIcon: {
+        position: 'absolute',
+        left: 16,
+    },
     loginButtonText: {
         color: Colors.buttonText,
         fontSize: 18,

@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Platform,
+  ActivityIndicator,
 } from 'react-native';
 import { styles } from './styles';
 import { Iconify } from 'react-native-iconify';
@@ -16,25 +17,41 @@ import { useNavigation } from '@react-navigation/native';
 import type { RootStackParamList } from '../../navigation/types';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
+// Redux hooks
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useLoginMutation } from '../../store/services/authApi';
+import { setRememberMe } from '../../store/slices/authSlice';
+
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
+  
+  const [login, { isLoading, error }] = useLoginMutation()
+  const dispatch = useAppDispatch()
+  const rememberMe = useAppSelector((state) => state.auth.rememberMe)
+  
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleRememberMeToggle = () => {
-    setRememberMe(!rememberMe);
-  };
-
-  const handleLogin = () => {
-    if (!phoneNumber || !password) {
-      Alert.alert('Error', 'Please fill in all fields');
-      return;
+  const handleLogin = async () => {
+    try {
+      // await login({
+      //   phoneNumber,
+      //   password,
+      //   rememberMe
+      // }).unwrap()
+      
+      // Navigation will happen automatically due to auth state change
+      navigation.navigate('Main', { screen: 'Home' })
+    } catch (err) {
+      // Handle error
+      Alert.alert('Error', 'Login failed')
     }
-
-    navigation.navigate('Main', { screen: 'Home' });
+  }
+  
+  const handleRememberMeToggle = () => {
+    dispatch(setRememberMe(!rememberMe));
   };
 
   const handleRegisterPress = () => {
@@ -102,6 +119,7 @@ const LoginScreen = () => {
             </View>
 
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+              {isLoading && <ActivityIndicator style={styles.loadingIcon} />}
               <Text style={styles.loginButtonText}>Sign In</Text>
             </TouchableOpacity>
             
